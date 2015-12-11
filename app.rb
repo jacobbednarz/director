@@ -1,6 +1,9 @@
 require 'sinatra'
+require 'redis'
 
 class Redirector < Sinatra::Base
+  redis = Redis.new(host: '127.0.0.1', port: 16379)
+
   not_found do
     halt 404, 'Not found'
   end
